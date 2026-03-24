@@ -1,0 +1,7 @@
+aid: centurylink
+url: https://raw.githubusercontent.com/api-evangelist/centurylink/refs/heads/main/apis.yml
+modified: '2026-03-23'
+apis: []
+common:
+  - type: Website
+    url: https://www.centurylink.com
