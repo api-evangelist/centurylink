@@ -1,7 +1,11 @@
 aid: centurylink
-url: https://raw.githubusercontent.com/api-evangelist/centurylink/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/centurylink/refs/heads/main/apis.yml
 modified: '2026-03-23'
 apis: []
 common:
   - type: Website
     url: https://www.centurylink.com
+description: >-
+  Discover CenturyLink residential home internet services. Find high-speed internet,
+  local and long distance home phone services, TV, and special bundle offers.
