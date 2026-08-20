@@ -9,6 +9,18 @@ tags:
   - Fiber
   - Lumen
   - Network
+  - Authentication
+  - Quantum Fiber
+  - SD-WAN
+  - Telecom
+  - Fortune 500
+tags_raw:
+  - Broadband
+  - Connectivity
+  - Edge
+  - Fiber
+  - Lumen
+  - Network
   - OAuth 2.0
   - Quantum Fiber
   - SD-WAN
@@ -46,6 +58,12 @@ apis:
   - aid: centurylink:lumen-developer-center
     name: Lumen Developer Center APIs
     tags:
+      - Enterprise
+      - Lumen
+      - Authentication
+      - Partner
+      - REST
+    tags_raw:
       - Enterprise
       - Lumen
       - OAuth 2.0
