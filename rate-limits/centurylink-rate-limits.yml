@@ -6,8 +6,8 @@ providerId: centurylink
 created: '2026-05-04'
 # Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
 # bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
+method: probed
+modified: '2026-09-05'
 reconciled: false
 tags:
   - Rate Limiting
@@ -18,14 +18,43 @@ description: Lumen does not publish numeric rate limits on its enterprise Develo
   and use exponential backoff. Authentication is OAuth 2.0 Client Credentials with administrator-enabled
   client IDs.
 notes: No public per-second/per-minute numbers documented; partner-negotiated.
+limit_count: 0
 sources:
-  - https://developer.lumen.com/
-  - https://apimarketplace.lumen.com/
-  - https://developer-test.centurylink.com/content/using-oauth-20-access-lumen-apis
+  - https://api.lumen.com/oauth/v2/token
+  - https://docs.lumen.com/lumen-connect/apis/
+  - https://developer.lumen.com/devcenter/getting-started
+verification:
+  method: probed
+  checked: '2026-09-05'
+  finding: >-
+    Probed the live Lumen gateway directly. NO rate-limit signal is returned to a
+    client: no RateLimit-*, no X-RateLimit-*, no Retry-After header appeared on any
+    anonymous response from api.lumen.com, and no numeric limit is published on any
+    reachable Lumen page. limit_count is 0 - an honest zero, not an omission. The v1
+    surface does return a TrackingId correlation header, which is the only runtime
+    signal a client gets. The 429/503 handling recorded below is standard guidance, NOT
+    an observed Lumen response code, and is marked as such. Prior sources were dead:
+    apimarketplace.lumen.com serves an expired certificate and
+    developer-test.centurylink.com times out.
+  headers_observed: []
+  evidence:
+    - url: https://api.lumen.com/oauth/v2/token
+      status: 401
+      note: no rate-limit headers on response
+    - url: https://api.lumen.com/oauth/v1/token
+      status: 401
+      note: TrackingId header present; no rate-limit headers
+    - url: https://developer-test.centurylink.com/content/using-oauth-20-access-lumen-apis
+      status: 0
+      note: TLS connection timed out - former source removed
 responseCodes:
   throttled: 429
   unauthorized: 401
   serviceUnavailable: 503
+responseCodesNote: >-
+  401 was observed live on api.lumen.com. 429 and 503 are NOT observed - they are the
+  conventional codes a partner-throttled gateway would use and are recorded here as
+  expectation, not measurement.
 limits:
   - name: Lumen API Marketplace (per OAuth client)
     scope: oauth_client

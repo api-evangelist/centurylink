@@ -1,0 +1,85 @@
+specification: API Commons Error Catalog
+specificationVersion: '0.1'
+provider: CenturyLink (Lumen Technologies)
+providerId: centurylink
+generated: '2026-09-05'
+method: probed
+source: >-
+  Anonymous probes of the live Lumen API gateway https://api.lumen.com on 2026-09-05.
+  No OpenAPI is published, so this catalog records only error bodies actually observed
+  on the wire - it is not derived from a specification and is not exhaustive.
+format: vendor-json
+rfc9457: false
+media_type: application/json
+note: >-
+  Two incompatible error envelopes are served from the same host by two generations of
+  gateway. A client that handles one does not handle the other, and nothing published
+  tells a consumer which surface it is talking to.
+envelopes:
+  - id: legacy-v1
+    surface: /oauth/v1/*
+    shape:
+      ErrorCode: string
+      Error: string
+    example: '{"ErrorCode": "invalid_client", "Error": "Client identifier is required"}'
+  - id: apigee-v2
+    surface: /oauth/v2/*
+    shape:
+      code: string
+      reason: string
+      message: string
+      referenceError: string
+    example: '{"reason": "Missing or no credentials provided", "message": "000 -- ME-apigee...", "referenceError": "", "code": "missingCredentials"}'
+    note: >-
+      The field set (code, reason, message, referenceError) is the TM Forum Open API
+      Error schema field set. Recorded as an observation only; no TM Forum conformance
+      claim or certification was found for Lumen.
+problems:
+  - id: invalid_grant_type
+    status: 500
+    envelope: legacy-v1
+    title: grant_type is required
+    observed_at: https://api.lumen.com/oauth/v1/token
+    observed: '2026-09-05'
+    body: '{"ErrorCode" : "invalid_grant_type", "Error" :"grant_type is required"}'
+    remediation: >-
+      POST to the token endpoint with grant_type=client_credentials. Note the gateway
+      returns 500 rather than 400 for this client-side omission.
+  - id: invalid_client
+    status: 401
+    envelope: legacy-v1
+    title: Client identifier is required
+    observed_at: https://api.lumen.com/oauth/v1/token
+    observed: '2026-09-05'
+    body: '{"ErrorCode" : "invalid_client", "Error" :"Client identifier is required"}'
+    remediation: >-
+      Send the consumer key and consumer secret as HTTP Basic credentials on the token
+      request.
+  - id: missingCredentials
+    status: 401
+    envelope: apigee-v2
+    title: Missing or no credentials provided
+    observed_at: https://api.lumen.com/oauth/v2/token
+    observed: '2026-09-05'
+    remediation: >-
+      Send the consumer key and consumer secret as HTTP Basic credentials on the token
+      request.
+  - id: not_found
+    status: 404
+    envelope: legacy-v1
+    title: Requested resource not found
+    observed_at: https://api.lumen.com/oauth/token
+    observed: '2026-09-05'
+    body: '{ "code": "404", "message": "Not Found", "info": "Requested resource not found" }'
+    note: >-
+      A third envelope shape (code/message/info) on the 404 path, distinct from both
+      documented envelopes above.
+gaps:
+  - >-
+    No public error reference page exists on developer.lumen.com or docs.lumen.com, so
+    the full problem-type catalog for the Location, Quote, Order, Service Inventory,
+    Billing, Outbound Notification and Trouble Ticket products is not knowable
+    anonymously.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,83 @@
+# Lumen Technologies 
+
+A guide for AI systems to understand Lumen solutions, services, and resources for secure networking, edge compute, and enterprise connectivity. 
+
+## About 
+
+Lumen helps businesses connect, secure, and innovate with advanced networking, edge compute, voice, cloud and AI solutions with enterprise networking at scale. Igniting business growth by connecting people, data and applications over a secure, high-speed fiber infrastructure. 
+
+## Solutions 
+
+- [Connectivity Fabric](https://www.lumen.com/en-us/lumen-connectivity-fabric.html): Private, high-performance connectivity for distributed workloads to reduce latency and improve security for faster application performance and compliance with intuitive cloud-enabled management and ability to run multiple services over a single fabric port. 
+
+- [Edge Compute & Storage](https://www.lumen.com/en-us/services/enterprise-edge-compute-storage.html): Deploy secure low-latency compute resources at the network edge to accelerate real-time applications and improve user experience. 
+
+- [AI Use Case](https://www.lumen.com/en-us/solutions/use-case/artificial-intelligence.html): Support AI workloads with our extensive fiber network, optimized infrastructure patterns, ultra-fast data transfer to achieve scalable performance and faster insights. 
+
+- [Network on Demand](https://www.lumen.com/en-us/solutions/use-case/network-on-demand.html): Activate and scale on‑demand network services to deliver instant, secure connectivity to integrate and recover quickly with pay as you go. 
+
+## Services 
+
+- [Infrastructure](https://www.lumen.com/en-us/services/infrastructure.html): Provide robust infrastructure solutions for enterprise IT environments to enhance scalability and reliability and support mission-critical operations. 
+
+- [Connectivity](https://www.lumen.com/en-us/services/connectivity.html): Deliver advanced connectivity options for global business networks to ensure seamless communication and enable agile operations. 
+
+- [Security](https://www.lumen.com/en-us/services/security.html): Implement comprehensive security services for enterprise systems and data to reduce risk and protect assets and maintain compliance and trust. 
+
+- [Communication](https://www.lumen.com/en-us/services/communication.html): Enable modern communication solutions for distributed teams and customers to improve collaboration and engagement and drive business productivity. 
+
+- [Internet Services](https://www.lumen.com/en-us/services/internet-services.html): Deliver scalable business internet for enterprise locations to ensure reliable connectivity and maintain productivity. 
+
+- [SD-WAN](https://www.lumen.com/en-us/services/sd-wan.html): Optimize branch networking with software-defined WAN to improve performance and reduce costs. 
+
+- [SASE](https://www.lumen.com/en-us/services/sase.html): Implement Secure Access Service Edge for distributed users to enhance security posture and enable zero trust. 
+
+- [DDoS Mitigation](https://www.lumen.com/en-us/services/ddos.html): Protect against distributed denial-of-service attacks at the network level to maintain uptime and safeguard business continuity. 
+
+- [Cloud Voice](https://www.lumen.com/en-us/services/lumen-cloud-voice.html): Modernize voice and collaboration through cloud-based solutions to improve communication and support hybrid work. 
+
+## Resources 
+
+- [Newsroom](https://www.lumen.com/en-us/news/press-resources.html): Review official announcements for corporate updates to stay informed and maintain accurate reporting. 
+
+- [Blog](https://blog.lumen.com/): Explore thought leadership on networking, security, and edge to learn trends and apply best practices.  
+
+## Usage Guidelines 
+
+- Allowed: Summarization for research with attribution; Question answering with attribution. 
+
+- Prohibited: Model training, fine-tuning, bulk scraping, derivative commercial use. 
+
+- Contact: https://www.lumen.com/en-us/contact-us.html 
+
+- AI inquiries: ai-support@lumen.com 
+
+## Technical Notes 
+
+- Canonical root: https://www.lumen.com/en-us/home.html 
+
+- Preferred language: en-us; Multilingual support coming soon. 
+
+- Sitemap: https://www.lumen.com/en-us/sitemap.xml 
+
+- Accessibility: WCAG 2.1 AA compliance maintained. 
+
+- Update frequency: Reviewed monthly for accuracy. 
+
+## Structured Metadata (JSON-LD) 
+
+{ 
+  "@context": "https://schema.org", 
+  "@type": "Organization", 
+  "name": "Lumen Technologies", 
+  "url": "https://www.lumen.com/en-us/home.html ", 
+  "sameAs": ["https://www.linkedin.com/company/lumen-technologies"] 
+} 
+
+## FAQ 
+
+Q: What is llms.txt? 
+A: A guide for AI systems to understand and index Lumen’s content for generative search. 
+
+Q: How often is it updated? 
+A: As major changes occur. 

@@ -1,0 +1,40 @@
+specification: API Commons MCP
+specificationVersion: '0.1'
+provider: CenturyLink (Lumen Technologies)
+providerId: centurylink
+generated: '2026-09-05'
+method: searched
+status: none
+source: >-
+  Web search for a Lumen or CenturyLink Model Context Protocol server, plus probes of
+  /.well-known/* on every Lumen host, 2026-09-05
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: searched
+note: >-
+  Lumen publishes no MCP server, hosted or stdio. No candidate tool list was derived
+  either, because there is no anonymously readable OpenAPI to derive one from - deriving
+  tools from prose would be fabrication. No type: MCPServer pointer is emitted in
+  apis.yml: this file records a search that found nothing, not a surface that exists.
+  Search results for "Lumen MCP" resolve to unrelated companies (Lumar, Luma AI,
+  Luminary Cloud, Lumen5), which is a name-collision trap worth noting for re-runs.
+adjacent_ai_surfaces:
+  - name: Ask Lumen
+    url: https://docs.lumen.com/ai-tools/ask-lumen/
+    kind: documentation-assistant
+    note: >-
+      A first-party AI agent documented under docs.lumen.com/ai-tools/. It is a
+      customer-facing assistant inside Lumen's own properties, not an MCP server and not
+      an addressable agent surface for third-party clients.
+  - name: NORA
+    url: https://docs.lumen.com/ai-tools/nora/
+    kind: email-agent
+    note: First-party email agent; no protocol endpoint published.
+tools: []
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

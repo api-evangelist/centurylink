@@ -6,8 +6,8 @@ providerId: centurylink
 created: '2026-05-04'
 # Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
 # bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
+method: searched
+modified: '2026-09-05'
 reconciled: false
 tags:
   - Telecom
@@ -21,10 +21,31 @@ description: Lumen (legacy CenturyLink) exposes enterprise APIs through the Lume
 notes: API usage is not separately metered against a published price list. Pricing is contractually negotiated
   alongside the underlying Lumen network/edge service. Treated as a partner-enterprise model with no
   public tiers.
+plan_count: 2
 sources:
   - https://developer.lumen.com/
-  - https://apimarketplace.lumen.com/
-  - https://www.lumen.com/en-us/solutions/public-sector.html
+  - https://www.lumen.com/en-us/public-sector.html
+  - https://www.lumen.com/llms.txt
+verification:
+  method: searched
+  checked: '2026-09-05'
+  finding: >-
+    Re-verified 2026-09-05. Lumen publishes NO public per-call API price list and no
+    plan/tier page. The www.lumen.com sitemap (407 URLs) contains no pricing page;
+    https://www.lumen.com/en-us/pricing.html returns 404. Lumen's own llms.txt describes
+    Network-as-a-Service as "pay as you go", but no rate card is published. API
+    consumption is not separately metered against a published price - it rides the
+    underlying connectivity, edge, CDN and security contract. The two entries below are
+    contract shapes, not published tiers. Both prior source URLs were dead and have been
+    replaced: apimarketplace.lumen.com serves an expired TLS certificate and
+    /en-us/solutions/public-sector.html now 404s (the live page is /en-us/public-sector.html).
+  evidence:
+    - url: https://www.lumen.com/en-us/pricing.html
+      status: 404
+    - url: https://www.lumen.com/en-us/public-sector.html
+      status: 200
+    - url: https://www.lumen.com/en-us/solutions/public-sector.html
+      status: 404
 plans:
   - id: centurylink-partner
     name: Partner / Enterprise API Access

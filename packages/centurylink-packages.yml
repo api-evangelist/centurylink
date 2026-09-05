@@ -1,0 +1,111 @@
+specification: API Commons Packages
+specificationVersion: '0.1'
+provider: CenturyLink (Lumen Technologies)
+providerId: centurylink
+generated: '2026-09-05'
+method: searched
+source: >-
+  registry.npmjs.org, pypi.org, rubygems.org, data.jsdelivr.com and the CenturyLink and
+  CenturyLinkCloud GitHub organizations, queried 2026-09-05.
+note: >-
+  Lumen ships NO client library for the current Lumen Developer Center API products
+  (Location, Quoting, Ordering, Service Inventory, Billing, Outbound Notification,
+  Trouble Ticket). Every first-party package found belongs either to the legacy
+  CenturyLink Cloud platform - last release 2022 on PyPI, 2016 on npm - or to Chi, the
+  design system, which is not an API client. The gap between the live API gateway at
+  api.lumen.com and the newest first-party SDK release is the finding.
+packages:
+  - id: chi
+    name: '@centurylink/chi'
+    registry: npm
+    url: https://www.npmjs.com/package/@centurylink/chi
+    official: true
+    type: design-system
+    version: 0.8.1
+    published: '2018-07-13'
+    note: >-
+      ABANDONED ON NPM. The npm package is pinned at 0.8.1 from 2018 while the source
+      repository github.com/CenturyLink/Chi carries version 7.17.0 and was last pushed
+      2026-09-03. jsDelivr confirms npm dist-tag latest is still 0.8.1. Anyone installing
+      Chi from npm gets an eight-year-old release.
+  - id: chi-cdn
+    name: Chi design system (CDN build)
+    registry: cdn
+    url: https://lib.lumen.com/chi/7.17.0/chi.css
+    official: true
+    type: design-system
+    version: 7.17.0
+    published: null
+    note: >-
+      The real, current distribution. Served from Lumen's own CDN at lib.lumen.com and
+      version-pinned in the URL path; https://lib.lumen.com/chi/7.17.0/chi.css returns
+      200 with 683,791 bytes of CSS (probed 2026-09-05). No registry metadata endpoint
+      exists for a CDN build, so published is null: the version is read from the pinned
+      URL and from package.json in the source repository, and no release date is
+      published anywhere machine-readable.
+  - id: clc-sdk-python
+    name: clc-sdk
+    registry: pypi
+    url: https://pypi.org/project/clc-sdk/
+    official: true
+    type: sdk
+    language: python
+    version: '2.51'
+    published: '2022-11-15'
+    note: >-
+      "CenturyLink Cloud SDK and CLI". First-party (github.com/CenturyLinkCloud/clc-python-sdk).
+      Wraps the CenturyLink Cloud v2 API, not the current Lumen Developer Center APIs.
+      Newest first-party SDK release found anywhere - almost four years old.
+  - id: clc-ansible-module
+    name: clc-ansible-module
+    registry: pypi
+    url: https://pypi.org/project/clc-ansible-module/
+    official: true
+    type: automation
+    language: python
+    version: 1.1.26
+    published: '2020-11-24'
+    note: First-party Ansible modules for CenturyLink Cloud (github.com/CenturyLinkCloud/clc-ansible-module).
+  - id: clc-node-sdk
+    name: clc-node-sdk
+    registry: npm
+    url: https://www.npmjs.com/package/clc-node-sdk
+    official: true
+    type: sdk
+    language: javascript
+    version: 1.1.4
+    published: '2016-06-07'
+    note: First-party CenturyLink Cloud SDK for Node.js. No release in over ten years.
+  - id: fog-clc
+    name: fog-clc
+    registry: rubygems
+    url: https://github.com/CenturyLinkCloud/fog-clc
+    official: true
+    type: sdk
+    language: ruby
+    version: null
+    published: null
+    note: >-
+      Source repository exists under the CenturyLinkCloud org (last push 2016-03-24) but
+      rubygems.org returns "This rubygem could not be found" - checked, never published
+      to the registry.
+source_only:
+  - name: clc-go-cli
+    repo: https://github.com/CenturyLinkCloud/clc-go-cli
+    note: First-party Go CLI for CenturyLink Cloud; last push 2016-11-24, no registry distribution.
+  - name: clc-java-sdk
+    repo: https://github.com/CenturyLinkCloud/clc-java-sdk
+    note: Last push 2016-09-08; not found on Maven Central under a CenturyLink coordinate.
+  - name: clc-net-sdk
+    repo: https://github.com/CenturyLinkCloud/clc-net-sdk
+    note: Last push 2016-11-30; no NuGet package located.
+  - name: terraform-provider-clc
+    repo: https://github.com/CenturyLinkCloud/terraform-provider-clc
+    note: Last push 2016-03-22.
+gaps:
+  - >-
+    No SDK, in any language, for the OAuth-gated Lumen APIs served from api.lumen.com.
+    A consumer integrating with Lumen today writes the HTTP client themselves.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

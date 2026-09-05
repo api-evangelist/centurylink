@@ -1,0 +1,43 @@
+specification: API Commons LLMsTxt
+specificationVersion: '0.1'
+provider: CenturyLink (Lumen Technologies)
+providerId: centurylink
+generated: '2026-09-05'
+method: searched
+source: first-party llms.txt files fetched verbatim 2026-09-05
+note: >-
+  Lumen serves TWO first-party llms.txt files, both as real text/plain documents. Saved
+  verbatim, unedited. www.centurylink.com/llms.txt returns 404 - the consumer brand
+  publishes none.
+files:
+  - url: https://www.lumen.com/llms.txt
+    status: 200
+    content_type: text/plain
+    bytes: 4824
+    file: llms/centurylink-llms.txt
+    subject: Lumen Technologies corporate site
+    highlights:
+      - Usage guidelines declare summarization and Q&A with attribution allowed
+      - Model training, fine-tuning, bulk scraping and derivative commercial use prohibited
+      - AI contact address published (ai-support@lumen.com)
+      - Inline schema.org Organization JSON-LD block
+      - Canonical root and sitemap declared
+    note: >-
+      Solutions- and services-oriented. It does NOT mention developer.lumen.com, the API
+      products, or api.lumen.com, so an agent following it is never told Lumen has APIs.
+  - url: https://docs.lumen.com/llms.txt
+    status: 200
+    content_type: text/plain
+    bytes: 6195
+    file: llms/centurylink-docs-llms.txt
+    subject: Lumen documentation site
+    highlights:
+      - Links the Lumen Connect APIs tab (https://docs.lumen.com/lumen-connect/apis/)
+      - Enumerates portal, product-support and readiness documentation entry points
+      - Gives citation guidance (prefer the most specific task page)
+    note: >-
+      The stronger of the two for API purposes: it is the only Lumen-published document
+      that points an agent at an API-related page.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

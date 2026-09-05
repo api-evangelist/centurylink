@@ -1,0 +1,207 @@
+specification: API Commons Well-Known
+specificationVersion: '0.1'
+provider: CenturyLink (Lumen Technologies)
+providerId: centurylink
+generated: '2026-09-05'
+method: probed
+source: anonymous HTTPS probes of every host named in apis.yml plus the live API gateway host api.lumen.com
+note: >-
+  No /.well-known document is served on any CenturyLink or Lumen host. Every 200 recorded
+  against developer.lumen.com is the SPA catch-all shell (an identical 11,800-byte
+  text/html Vue module-federation bootstrap returned for EVERY path on that host,
+  including to Googlebot) and is therefore a MISS, not a document. No WellKnown or
+  SecurityTxt pointer is emitted in apis.yml because nothing real was served.
+hosts:
+  - host: www.centurylink.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+  - host: centurylink.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+  - host: www.lumen.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+  - host: lumen.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+        note: apex host answers 403 to this crawler; no document returned
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 403
+      - path: /.well-known/agent-card.json
+        status: 403
+      - path: /.well-known/agent.json
+        status: 403
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+  - host: developer.lumen.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        note: SPA catch-all shell (text/html, 11800 bytes) - not a document, counted as a miss
+      - path: /.well-known/openid-configuration
+        status: 200
+        note: SPA catch-all shell - not a document
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        note: SPA catch-all shell - not a document
+      - path: /.well-known/api-catalog
+        status: 200
+        note: SPA catch-all shell - not a document
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        note: SPA catch-all shell - not a document
+      - path: /.well-known/agent-card.json
+        status: 200
+        note: SPA catch-all shell - not an AgentCard object; no a2a artifact written
+      - path: /.well-known/agent.json
+        status: 200
+        note: SPA catch-all shell - not an AgentCard object; no a2a artifact written
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        note: SPA catch-all shell - not a document
+  - host: apimarketplace.lumen.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+        note: host serves an expired TLS certificate (CN=developer.centurylink.com, expired 2026-01-15) and 301s to developer.lumen.com
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+  - host: docs.lumen.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+  - host: api.lumen.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+  - host: www.quantumfiber.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+  - host: quantumfiber.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

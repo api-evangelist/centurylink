@@ -1,0 +1,107 @@
+specification: API Commons Conventions
+specificationVersion: '0.1'
+provider: CenturyLink (Lumen Technologies)
+providerId: centurylink
+generated: '2026-09-05'
+method: probed
+source: >-
+  Live anonymous probes of https://api.lumen.com (2026-09-05) plus first-party
+  server-rendered documentation at https://docs.lumen.com/lumen-connect/apis/
+note: >-
+  Lumen publishes no anonymously reachable OpenAPI, so every statement below is either
+  observed on the wire against the production gateway or read from a public docs page.
+  Where a convention could not be established from either source it is recorded as
+  unknown rather than guessed.
+authentication:
+  style: oauth2-client-credentials-bearer
+  detail: >-
+    Consumer key and secret exchanged for a Bearer access token at
+    https://api.lumen.com/oauth/v1/token (legacy) or /oauth/v2/token (Apigee). See
+    authentication/centurylink-authentication.yml.
+  cross_reference: authentication/centurylink-authentication.yml
+versioning:
+  style: path
+  detail: >-
+    Version is carried in the URL path segment immediately after the product name, e.g.
+    /oauth/v1/token and /oauth/v2/token, both of which answer live. No version request
+    header, no media-type versioning, and no published version-support window were found.
+  evidence:
+    - url: https://api.lumen.com/oauth/v1/token
+      status: 401
+    - url: https://api.lumen.com/oauth/v2/token
+      status: 401
+error_envelope:
+  format: vendor-json
+  rfc9457: false
+  detail: >-
+    Two distinct error envelopes are in production on the same host. The legacy v1 surface
+    returns {"ErrorCode": "...", "Error": "..."} and the v2 Apigee surface returns
+    {"reason": "...", "message": "...", "referenceError": "...", "code": "..."}. Neither
+    uses application/problem+json. Field names on the v2 envelope match the TM Forum
+    Error schema, but no contract or conformance statement was found to confirm that.
+  cross_reference: errors/centurylink-problem-types.yml
+request_id_tracing:
+  supported: partial
+  header: TrackingId
+  detail: >-
+    The v1 gateway returns a TrackingId response header carrying a UUID
+    (observed: 889f7c10-a54e-19bb-fa9c-52284239d4e2). The v2 Apigee gateway did not
+    return a correlation header on the unauthenticated responses observed, and no
+    request-id header contract is documented publicly.
+pagination:
+  style: unknown
+  detail: >-
+    No paginated collection endpoint is anonymously reachable and no pagination
+    convention is published on any public Lumen page. Not asserted.
+field_expansion:
+  supported: unknown
+metadata:
+  supported: unknown
+rate_limit_signaling:
+  headers_observed: []
+  detail: >-
+    No RateLimit-*, X-RateLimit-* or Retry-After header appeared on any anonymous
+    response from api.lumen.com. Limits are governed by the partner agreement rather
+    than published numbers.
+  cross_reference: rate-limits/centurylink-rate-limits.yml
+idempotency:
+  supported: false
+  coverage: none
+  scope: []
+  header: null
+  retention: null
+  detail: >-
+    No idempotency or replay-protection mechanism is documented on any anonymously
+    reachable Lumen surface, and no Idempotency-Key header contract was found. Because
+    Lumen's write surface (quote, order, disconnect, trouble ticket) is exactly the kind
+    of surface where a duplicate submission has a commercial cost, the absence is
+    material rather than incidental. Recorded as none, not unknown: coverage: none is
+    the honest reading of a public surface that documents no mechanism at all. No
+    type: Idempotency pointer is emitted in apis.yml.
+reversibility:
+  grade: undocumented
+  applicable: true
+  detail: >-
+    Lumen's API products include ordering and disconnect flows, so the surface is not
+    read-only and reversibility is applicable rather than na. No reversal operation,
+    cancellation path or reversal window is stated on any anonymously reachable page:
+    the operational docs describe disconnect and change requests as portal workflows
+    (https://docs.lumen.com/lumen-connect/services/creating-a-disconnect-request/) but
+    do not name an API operation that reverses a submitted order, nor any window inside
+    which one may be reversed. NO WINDOW IS ASSERTED HERE because none is published.
+  reversal_operations: []
+  windows: []
+  evidence:
+    - url: https://docs.lumen.com/lumen-connect/services/creating-a-disconnect-request/
+      status: 200
+      note: portal workflow, not an API reversal contract
+dry_run_mode:
+  supported: unknown
+  detail: >-
+    A sandbox API product is referenced by an indexed Developer Center FAQ title
+    ("How do I access sandbox API product"), but that page is inside the JS-rendered SPA
+    and returns only the catch-all shell to a crawler, so neither the sandbox's existence
+    nor its semantics could be confirmed on the wire.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

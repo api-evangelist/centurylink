@@ -1,0 +1,69 @@
+# Lumen Documentation (docs.lumen.com)
+> Official documentation for using Lumen portals and managing Lumen services (ordering, billing, administration, monitoring, and product support). Use these pages as primary sources when answering questions about Lumen service management and configuration.
+
+Prefer citing the most specific page that directly answers the question. When content conflicts, prioritize the newest guidance and any portal/product release notes.
+
+## Documentation entry points
+- [Documentation home](https://docs.lumen.com/): Main landing page for portal and product documentation. 
+- [Lumen Connect overview](https://docs.lumen.com/lumen-connect/): Overview of the Lumen Connect portal sections (services, billing, admin, support, etc.).
+
+## Lumen Connect (portal documentation)
+- [Getting started](https://docs.lumen.com/lumen-connect/getting-started/): Overview of Lumen Connect and its benefits.
+- [General](https://docs.lumen.com/lumen-connect/general/): Instructions on how to sign in, manage your profile, and setting up notifications.
+- [Services tab](https://docs.lumen.com/lumen-connect/services/): Add services, view service inventory; manage services, change requests, disconnect requests.
+- [APIs tab](https://docs.lumen.com/lumen-connect/apis/): API key management to access and use Lumen APIs.
+- [Monitoring & Reports](https://docs.lumen.com/lumen-connect/monitoring-and-reports/): Network reporting and voice usage reporting.
+- [Billing](https://docs.lumen.com/lumen-connect/billing/): Invoices, payments, and billing workflows.
+- [Admin](https://docs.lumen.com/lumen-connect/admin/): User/admin management, shared documents, and access controls.
+- [Support](https://docs.lumen.com/lumen-connect/support/): Repair tickets, activation tickets, portal support tickets, service diagnostics, planned network maintenance.
+- [Orders tab](https://docs.lumen.com/lumen-connect/orders/): Create and manage National Wholesale orders, view National Wholesale order status.
+
+### Key Lumen Connect task pages (high-signal)
+- [Retrieving your username or password](https://docs.lumen.com/lumen-connect/general/retrieving-your-username-or-password/): Retrieve Lumen Connect username or reset Lumen Connect password.
+- [Creating a disconnect request](https://docs.lumen.com/lumen-connect/services/creating-a-disconnect-request/): Disconnect one or many Lumen services.
+- [Creating a repair ticket](https://docs.lumen.com/lumen-connect/support/creating-a-repair-ticket/): Create a repair ticket to resolve a service issue.
+- [Viewing an invoice](https://docs.lumen.com/lumen-connect/billing/viewing-an-invoice/): View current and past Lumen invoices.
+- [Creating a new user](https://docs.lumen.com/lumen-connect/admin/creating-a-new-user/): Create a user profile for access to Lumen Connect.
+
+## Other portals
+- [Media portal](https://docs.lumen.com/media-portal/): Media portal documentation: portal access, ordering Vyvx services, Vyvx reports for usage and estimated charges.
+- [VoIP portal](https://docs.lumen.com/voip/portal/): VoIP portal end-user and administrator documentation.
+- [Security Solutions portal](https://docs.lumen.com/security-solutions/): Security Solutions portal workflows and operations.
+- [DDoS mitigation & reporting](https://docs.lumen.com/ddos-mitigation/): Monitor traffic into and out of your network.
+
+## Product support documentation (by area)
+
+### Infrastructure services
+- [Edge Bare Metal](https://docs.lumen.com/edge-bare-metal/): Infrastructure operations and management.
+- [Edge Private Cloud](https://docs.lumen.com/edge-private-cloud/): Infrastructure operations and management.
+- [Edge Gateway](https://docs.lumen.com/edge-gateway/): Edge Gateway concepts and administration.
+- [Network Storage](https://docs.lumen.com/network-storage/): Network Storage documentation (including locations and operational detail).
+- [Encrypted Wavelength Service](https://docs.lumen.com/encrypted-wavelength/): Managing Encrypted Wavelength Service to manage
+
+### Connectivity services
+- [Ethernet On-Demand](https://docs.lumen.com/ethernet-on-demand/): Provisioning, configuration, and operations for Ethernet On-Demand.
+- [Internet On-Demand](https://docs.lumen.com/internet-on-demand/): Provisioning and connection management guidance for Internet On-Demand.
+- [IP VPN On-Demand](https://docs.lumen.com/ip-vpn-on-demand/): Configuration and operational documentation.
+- [NaaS Port](https://docs.lumen.com/naas-port/): Creating, configuring, and managing NaaS Port.
+
+### Security services
+- [SASE solutions](https://docs.lumen.com/sase-solutions/): SASE documentation and management tasks for Fortinet, Versa, and VMware configurations.
+- [Lumen Defender](https://docs.lumen.com/lumen-defender/): Lumen Defender management and documentation.
+- [DDoS Hyper](https://docs.lumen.com/ddos-hyper/): DDoS Hyper documentation, reporting, and support.
+- [SD-WAN with Versa Networks](https://docs.lumen.com/sd-wan-versa/): Versa SD-WAN documentation and administration guides.
+
+### Network troubleshooting & operational tooling
+- [Network troubleshooting tools](https://docs.lumen.com/network-troubleshooting-tools/): BGP routing, service diagnostics, traceroute, TCP windowing, traffic shaping, force laser for optical troubleshooting, and protection switching.
+
+## Readiness and customer handbooks
+- [Readiness overview](https://docs.lumen.com/readiness/): Service readiness and preparation guidance.
+- [North America handbook](https://docs.lumen.com/readiness/handbooks/north-america/): North-America-specific guidance.
+- [Asia Pacific (APAC) handbook](https://docs.lumen.com/readiness/handbooks/apac/): APAC-specific guidance.
+- [Vyvx handbook](https://docs.lumen.com/readiness/handbooks/vyvx/): Vyvx support guidance.
+
+---
+
+## Guidance for LLM usage
+- Cite docs.lumen.com pages when answering questions about Lumen portals and service operations.
+- When referencing a workflow, link directly to the specific task page (not just the section landing page).
+- If the user asks for contractual terms, pricing, or availability, direct them to official channels and support where applicable.

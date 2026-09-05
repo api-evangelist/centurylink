@@ -1,0 +1,80 @@
+specification: API Commons Authentication
+specificationVersion: '0.1'
+provider: CenturyLink (Lumen Technologies)
+providerId: centurylink
+generated: '2026-09-05'
+method: searched
+source: >-
+  https://docs.lumen.com/lumen-connect/apis/ (server-rendered first-party documentation)
+  plus live anonymous probes of the Lumen API gateway at https://api.lumen.com
+note: >-
+  Derived from documentation plus live probes, NOT from an OpenAPI document. Lumen
+  publishes no anonymously reachable machine-readable contract: the Developer Center
+  at developer.lumen.com is a Vue module-federation SPA that returns an identical
+  11,800-byte HTML shell for every path, and its OpenAPI specs are fetched at runtime
+  from a sign-in-gated content service.
+primary_scheme: oauth2
+schemes:
+  - id: oauth2_client_credentials
+    type: oauth2
+    flow: clientCredentials
+    description: >-
+      Lumen API products use OAuth 2.0 client credentials. The consumer key and consumer
+      secret issued against an API key in Lumen Connect are sent as HTTP Basic credentials
+      to the Lumen authorization server; the returned access token is then presented as a
+      Bearer token on each API call.
+    token_endpoints:
+      - url: https://api.lumen.com/oauth/v1/token
+        method: probed
+        observed: '2026-09-05'
+        http_status_unauthenticated: 401
+        observed_body: '{"ErrorCode":"invalid_client","Error":"Client identifier is required"}'
+        note: >-
+          Legacy token endpoint. A GET returns 500 with
+          {"ErrorCode":"invalid_grant_type","Error":"grant_type is required"}; a POST with
+          grant_type=client_credentials and no credentials returns 401. Responses carry a
+          TrackingId correlation header and Access-Control-Allow-Origin *.
+      - url: https://api.lumen.com/oauth/v2/token
+        method: probed
+        observed: '2026-09-05'
+        http_status_unauthenticated: 401
+        observed_body: '{"reason":"Missing or no credentials provided","message":"000 -- ME-apigee...","referenceError":"","code":"missingCredentials"}'
+        note: >-
+          Current token endpoint. The error body identifies an Apigee gateway and uses a
+          code/reason/message/referenceError envelope.
+    token_transport: Authorization Bearer
+    credential_transport: 'HTTP Basic (consumer key as username, consumer secret as password)'
+  - id: api_key_registration
+    type: apiKey
+    description: >-
+      API keys are created and managed in the Lumen Connect portal. Each key is scoped to
+      the API products it covers, can be edited to change that product coverage, and its
+      client secret can be reset independently of the key. Registration for API access is
+      a prerequisite and is administrator-gated.
+    management_docs:
+      - https://docs.lumen.com/lumen-connect/apis/registering-for-api-access/
+      - https://docs.lumen.com/lumen-connect/apis/creating-an-api-key/
+      - https://docs.lumen.com/lumen-connect/apis/editing-an-api-key/
+      - https://docs.lumen.com/lumen-connect/apis/deleting-an-api-key/
+      - https://docs.lumen.com/lumen-connect/apis/resetting-the-client-secret-for-an-api-key/
+  - id: edge_private_cloud_token
+    type: apiKey
+    description: >-
+      Lumen Edge Private Cloud uses its own API authentication token, created and managed
+      inside the Edge Private Cloud product rather than through Lumen Connect API keys.
+    management_docs:
+      - https://docs.lumen.com/edge-private-cloud/creating-an-api-authentication-token-for-edge-private-cloud/
+      - https://docs.lumen.com/edge-private-cloud/managing-api-sessions-for-edge-private-cloud/
+onboarding:
+  self_service: false
+  requires_contract: true
+  description: >-
+    API access is not self-service. A Lumen Connect account is required, the account must
+    be registered for API access, and an administrator must enable the API products a key
+    covers. There is no anonymous key issuance and no public trial credential.
+docs:
+  - https://docs.lumen.com/lumen-connect/apis/
+  - https://developer.lumen.com/devcenter/getting-started
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

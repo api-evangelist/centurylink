@@ -53,18 +53,22 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/centurylink.png
 access: 3rd-Party
 created: '2026-03-23'
-modified: '2026-04-23'
-position: Consuming
+modified: '2026-09-05'
+position: Producing
 specificationVersion: '0.23'
 description: >-
   CenturyLink is the residential broadband and home services brand of Lumen
   Technologies, a Fortune 500 telecommunications provider operating one of
   the largest fiber networks in North America. Following the Level 3
   acquisition and rebrand to Lumen, CenturyLink's developer surface is
-  exposed through the Lumen Developer Center and Lumen API Marketplace,
-  which publish REST APIs secured by OAuth 2.0 for enterprise location
-  qualification, quote-to-order, provisioning, billing, notifications, CDN
-  and edge compute, DDoS mitigation, and Public Sector networking products.
+  exposed through the Lumen Developer Center, which publishes REST APIs
+  secured by OAuth 2.0 for enterprise location qualification, quote-to-order,
+  provisioning, billing, notifications, CDN and edge compute, DDoS
+  mitigation, and Public Sector networking products. The production API
+  gateway answers at api.lumen.com, but no OpenAPI, AsyncAPI or GraphQL
+  contract is published anonymously: the Developer Center is a
+  module-federation single-page app that returns the same HTML shell for
+  every path and loads its specifications from a sign-in-gated service.
 apis:
   - aid: centurylink:lumen-developer-center
     name: Lumen Developer Center APIs
@@ -81,38 +85,61 @@ apis:
       - Partner
       - REST
     humanURL: https://developer.lumen.com/
+    baseURL: https://api.lumen.com
     properties:
       - url: https://developer.lumen.com/
         type: Website
-      - url: https://developer.lumen.com/apis
-        type: Reference
-      - url: https://developer.centurylink.com/apis
-        type: LegacyDeveloper
-      - url: https://developer-test.centurylink.com/content/using-oauth-20-access-lumen-apis
+      - url: https://developer.lumen.com/devcenter/overview
+        type: APIReference
+      - url: https://developer.lumen.com/devcenter/getting-started
+        type: GettingStarted
+      - url: https://developer.lumen.com/devcenter/support
+        type: Support
+      - url: https://docs.lumen.com/lumen-connect/apis/registering-for-api-access/
         type: Authentication
+      - url: authentication/centurylink-authentication.yml
+        type: Authentication
+      - url: conventions/centurylink-conventions.yml
+        type: Conventions
+      - url: errors/centurylink-problem-types.yml
+        type: ErrorCatalog
     description: >-
       The Lumen Developer Center publishes Lumen's enterprise API catalog,
-      including Location, Quote, Order (PX CreateOrder), Service Inventory,
-      Billing, Outbound Notification, and Trouble Ticket APIs. All APIs use
-      OAuth 2.0 Client Credentials and require Partner Developer Portal
-      registration and administrator enablement.
+      including Location, Quoting, Ordering, Service Inventory, Billing,
+      Outbound Notification, and Trouble Ticket APIs. All APIs use OAuth 2.0
+      Client Credentials against api.lumen.com and require registration for
+      API access plus administrator enablement of the API products an API key
+      covers. Base URL confirmed by live probe on 2026-09-05: the token
+      endpoints https://api.lumen.com/oauth/v1/token and /oauth/v2/token both
+      answer with real OAuth errors. The v2 gateway identifies itself as
+      Apigee. The former /apis index at developer.lumen.com now 302s to the
+      site root; the shipped SPA route table declares only /devcenter/home,
+      /devcenter/getting-started, /devcenter/support, /devcenter/overview and
+      /devcenter/docs/:category/:section?/:slug?.
   - aid: centurylink:lumen-api-marketplace
     name: Lumen API Marketplace
     tags:
       - API Marketplace
       - Enterprise
       - Partner
-    humanURL: https://apimarketplace.lumen.com/
+    humanURL: https://developer.lumen.com/
     properties:
-      - url: https://apimarketplace.lumen.com/
+      - url: https://developer.lumen.com/
         type: Website
-      - url: https://apimarketplace.lumen.com/obtaining-user-credentials-access-centurylink-apis
-        type: Credentials
+      - url: https://docs.lumen.com/lumen-connect/apis/
+        type: APIKeys
     description: >-
-      The Lumen API Marketplace is the enterprise catalog where partners
-      and customers browse APIs, request credentials, and manage app-level
-      OAuth client IDs for programmatic access to Lumen and legacy
-      CenturyLink services.
+      The Lumen API Marketplace was the enterprise catalog where partners and
+      customers browsed APIs and requested credentials. It has been folded
+      into the Lumen Developer Center and Lumen Connect. As of 2026-09-05 the
+      apimarketplace.lumen.com host still answers, but it presents a TLS
+      certificate for CN=developer.centurylink.com that expired 2026-01-15,
+      so an ordinary browser refuses the connection before its 301 to
+      developer.lumen.com is ever followed. Its two former pointers have been
+      removed from this record and the finding is captured in
+      lifecycle/centurylink-lifecycle.yml. API key creation, editing, product
+      scoping and client-secret reset now live in Lumen Connect and are
+      documented on docs.lumen.com.
   - aid: centurylink:lumen-openapi-services
     name: Lumen OpenAPI Services (Level 3 legacy)
     tags:
@@ -120,17 +147,18 @@ apis:
       - Level 3
       - Location
       - OpenAPI
-    humanURL: https://developer.level3.com/documentation
+    humanURL: https://docs.lumen.com/lumen-connect/apis/
     properties:
-      - url: https://developer.level3.com/documentation
+      - url: https://docs.lumen.com/lumen-connect/apis/
         type: Documentation
-      - url: https://developer.level3.com/
-        type: Developer
     description: >-
-      The Level 3 / Lumen OpenAPI Services portal provides OpenAPI-described
-      REST services such as the Lumen Location API that returns detailed
-      service location information by locationId, along with reference
-      specifications inherited from the Level 3 product family.
+      The Level 3 / Lumen OpenAPI Services portal provided OpenAPI-described
+      REST services such as the Lumen Location API. The portal is GONE:
+      developer.level3.com no longer resolves in DNS (probed 2026-09-05), so
+      both of this entry's former pointers were dead and have been removed.
+      The surviving public documentation for API access to the successor
+      products is the Lumen Connect APIs section on docs.lumen.com. No
+      OpenAPI document from this family is published at any reachable URL.
   - aid: centurylink:lumen-public-sector-api-center
     name: Lumen Public Sector API Center
     tags:
@@ -138,17 +166,18 @@ apis:
       - Government
       - Public Sector
       - State and Local
-    humanURL: https://blog.centurylink.com/lumen-launches-public-sector-api-marketplace-which-offers-easy-to-use-apis/
+    humanURL: https://www.lumen.com/en-us/public-sector.html
     properties:
-      - url: https://blog.centurylink.com/lumen-launches-public-sector-api-marketplace-which-offers-easy-to-use-apis/
-        type: Announcement
-      - url: https://www.lumen.com/en-us/solutions/public-sector.html
+      - url: https://www.lumen.com/en-us/public-sector.html
         type: Solutions
     description: >-
       The Public Sector API Center offers government-tailored REST APIs for
-      Lumen network services, enabling federal, state, and local agencies
-      to programmatically order, provision, and monitor connectivity and
-      managed services.
+      Lumen network services, enabling federal, state, and local agencies to
+      programmatically order, provision, and monitor connectivity and managed
+      services. Both pointers previously carried here were dead as of
+      2026-09-05 — blog.centurylink.com no longer resolves in DNS and
+      /en-us/solutions/public-sector.html returns 404 — and have been
+      replaced with the live public-sector section.
   - aid: centurylink:quantum-fiber
     name: Quantum Fiber Residential Services
     tags:
@@ -167,26 +196,82 @@ apis:
       and service management exposed through consumer web and mobile apps
       rather than a public developer API.
 common:
-  - type: DomainSecurity
-    url: security/centurylink-domain-security.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/lumentechnologies
   - type: Website
     url: https://www.centurylink.com
   - type: Corporate
     url: https://www.lumen.com/
   - type: Developer
     url: https://developer.lumen.com/
-  - type: APIMarketplace
-    url: https://apimarketplace.lumen.com/
-  - type: LegacyDeveloper
-    url: https://developer.centurylink.com/apis
+  - type: DeveloperPortal
+    url: https://developer.lumen.com/
+  - type: APIReference
+    url: https://developer.lumen.com/devcenter/overview
   - type: Documentation
     url: https://docs.lumen.com/
+  - type: GettingStarted
+    url: https://developer.lumen.com/devcenter/getting-started
+  - type: Support
+    url: https://developer.lumen.com/devcenter/support
+  - type: Blog
+    url: https://www.lumen.com/blog-and-news/en-us/home
   - type: GitHubOrganization
     url: https://github.com/centurylink
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/lumentechnologies
   - type: QuantumFiber
     url: https://www.quantumfiber.com/
+  - type: TermsOfService
+    url: https://www.lumen.com/en-us/about/legal/api-developer-terms-and-conditions.html
+  - type: PrivacyPolicy
+    url: https://www.lumen.com/en-us/about/legal/privacy-notice.html
+  - type: LLMsTxt
+    url: llms/centurylink-llms.txt
+  - type: Authentication
+    url: authentication/centurylink-authentication.yml
+  - type: Conventions
+    url: conventions/centurylink-conventions.yml
+  - type: ErrorCatalog
+    url: errors/centurylink-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/centurylink-lifecycle.yml
+  - type: Conformance
+    url: conformance/centurylink-conformance.yml
+  - type: Packages
+    url: packages/centurylink-packages.yml
+  - type: SDKs
+    url: packages/centurylink-packages.yml
+  - type: Components
+    url: components/centurylink-components.yml
+  - type: Plans
+    url: plans/centurylink-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/centurylink-rate-limits.yml
+  - type: DomainSecurity
+    url: security/centurylink-domain-security.yml
+x-enrichment:
+  date: '2026-09-05'
+  status: enriched
+  artifacts_added: 12
+  pass: local-v3
+x-coverage:
+  state: covered
+  reason: covered
+  detail: >-
+    Lumen publishes a live OAuth 2.0 gateway at api.lumen.com and two first-party
+    llms.txt files, but no machine-readable API contract is anonymously reachable: the
+    Developer Center at developer.lumen.com is a Vue module-federation SPA that returns
+    an identical 11,800-byte HTML shell for every path, including to Googlebot, and
+    loads its OpenAPI specs from a sign-in-gated content service.
+  evidence:
+    - url: https://api.lumen.com/oauth/v2/token
+      status: 401
+    - url: https://www.lumen.com/llms.txt
+      status: 200
+    - url: https://developer.lumen.com/openapi.json
+      status: 200
+    - url: https://developer.lumen.com/apis
+      status: 302
+  checked: '2026-09-05'
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

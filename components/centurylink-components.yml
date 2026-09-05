@@ -1,0 +1,49 @@
+specification: API Commons Components
+specificationVersion: '0.1'
+provider: CenturyLink (Lumen Technologies)
+providerId: centurylink
+generated: '2026-09-05'
+method: searched
+source: >-
+  https://github.com/CenturyLink/Chi, https://lib.lumen.com/chi/ and the shipped
+  developer.lumen.com bundle, 2026-09-05
+families:
+  - id: chi
+    name: Chi
+    description: >-
+      Lumen's design system for building consistent digital products and experiences.
+      Open source under MIT. Ships CSS plus Vue and web-component wrappers, themed for
+      lumen, connect, centurylink and test brands from a single build.
+    repository: https://github.com/CenturyLink/Chi
+    homepage: https://lib.lumen.com/chi
+    license: MIT
+    version: 7.17.0
+    last_commit: '2026-09-03'
+    loaders:
+      - type: cdn
+        url: https://lib.lumen.com/chi/7.17.0/chi.css
+        status: 200
+        note: version-pinned CDN path, 683,791 bytes (probed 2026-09-05)
+      - type: npm
+        package: '@centurylink/chi'
+        version: 0.8.1
+        published: '2018-07-13'
+        note: >-
+          Stale. The registry copy is eight years behind the CDN and the repository.
+          See packages/centurylink-packages.yml.
+    packages_in_repo:
+      - '@centurylink/chi'
+      - '@centurylink/chi-vue'
+    note: >-
+      Chi is consumed in production by Lumen's own properties: developer.lumen.com,
+      docs.lumen.com and www.lumen.com all carry class="chi" on the root element and
+      preconnect to lib.lumen.com. @centurylink/chi-vue is loaded as a module-federation
+      shared dependency by the Developer Center SPA but is not published to npm.
+gaps:
+  - >-
+    No embeddable API-facing component (no hosted checkout, ordering widget, embedded
+    dashboard or prebuilt console surface) is published. Chi is a presentation-layer
+    design system, not an API integration surface.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

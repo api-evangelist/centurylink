@@ -1,0 +1,87 @@
+specification: API Commons Conformance
+specificationVersion: '0.1'
+provider: CenturyLink (Lumen Technologies)
+providerId: centurylink
+generated: '2026-09-05'
+method: probed
+source: >-
+  Anonymous probes of https://api.lumen.com and first-party documentation at
+  docs.lumen.com and www.lumen.com, 2026-09-05
+note: >-
+  No machine-readable contract is published anonymously, so nothing here is asserted
+  from a specification. Each entry cites the exact URL that establishes it. Entries with
+  conforms: false record a standard that was checked and NOT found - an honest absence,
+  not a penalty.
+conformance:
+  - id: oauth2
+    name: OAuth 2.0 (RFC 6749)
+    conforms: true
+    profile: client_credentials
+    evidence: https://api.lumen.com/oauth/v2/token
+    note: >-
+      Live token endpoint. An unauthenticated POST with grant_type=client_credentials
+      returns 401 with a missing-credentials error; a GET without grant_type returns a
+      grant_type-is-required error. Both are RFC 6749 client-credentials behaviour.
+  - id: rfc9457
+    name: Problem Details for HTTP APIs (RFC 9457)
+    conforms: false
+    evidence: https://api.lumen.com/oauth/v1/token
+    note: >-
+      Errors are vendor JSON in three distinct shapes across the same host; no
+      application/problem+json was returned. See errors/centurylink-problem-types.yml.
+  - id: rfc8594
+    name: Sunset HTTP Header (RFC 8594)
+    conforms: false
+    evidence: https://api.lumen.com/oauth/v2/token
+    note: No Sunset or Deprecation header observed on any anonymous response.
+  - id: oidc
+    name: OpenID Connect Discovery
+    conforms: false
+    evidence: https://api.lumen.com/.well-known/openid-configuration
+    note: 404 on every host probed. See well-known/centurylink-well-known.yml.
+  - id: rfc9728
+    name: OAuth 2.0 Protected Resource Metadata (RFC 9728)
+    conforms: false
+    evidence: https://api.lumen.com/.well-known/oauth-protected-resource
+    note: 404 on every host probed.
+  - id: rfc9116
+    name: security.txt (RFC 9116)
+    conforms: false
+    evidence: https://www.lumen.com/.well-known/security.txt
+    note: 404. No vulnerability-disclosure contact is published at the well-known path.
+  - id: llmstxt
+    name: llms.txt
+    conforms: true
+    evidence: https://www.lumen.com/llms.txt
+    note: >-
+      Two first-party llms.txt files are served as text/plain - one for the corporate
+      site (4,824 bytes) and one for the documentation site
+      (https://docs.lumen.com/llms.txt, 6,195 bytes). Both carry explicit usage
+      guidelines, an AI contact address and, on the corporate file, an inline
+      schema.org Organization JSON-LD block.
+  - id: tmforum-open-api
+    name: TM Forum Open API
+    conforms: false
+    evidence: https://api.lumen.com/oauth/v2/token
+    note: >-
+      OBSERVATION, NOT A CLAIM. The v2 gateway's error envelope uses the field set
+      code / reason / message / referenceError, which is the TM Forum Error schema field
+      set, and Lumen's published API product names (Quote, Order, Service Inventory,
+      Trouble Ticket) map onto TMF648 / TMF622 / TMF638 / TMF621. No TM Forum
+      conformance certificate, conformance profile, or contract declaring a TMF schema
+      URI was found, so conforms is false. Re-check if a contract ever becomes readable.
+  - id: schema-org
+    name: schema.org structured data
+    conforms: true
+    evidence: https://www.lumen.com/llms.txt
+    note: >-
+      An Organization JSON-LD object is embedded verbatim in the corporate llms.txt.
+gaps:
+  - >-
+    Lumen publishes no compliance or certification page (SOC 2, ISO 27001, PCI, FedRAMP)
+    that a probe could reach: probe-security-programs.py returned vdp=none trust=none and
+    /en-us/about/trust-center.html and /en-us/about/trust-and-transparency.html both 404.
+    No type: Compliance pointer is emitted.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,97 @@
+specification: API Commons Lifecycle
+specificationVersion: '0.1'
+provider: CenturyLink (Lumen Technologies)
+providerId: centurylink
+generated: '2026-09-05'
+method: probed
+source: >-
+  Live probes of every host in apis.yml plus the api.lumen.com gateway, 2026-09-05,
+  and the Lumen legal index at https://www.lumen.com/en-us/about/legal.html
+versioning:
+  scheme: path-major
+  detail: >-
+    Major version in the URL path (/oauth/v1/, /oauth/v2/). Two major versions of the
+    authorization surface are live simultaneously. No published support window, no
+    end-of-life date, and no version-support matrix were found.
+  current_versions:
+    - surface: authorization
+      versions: [v1, v2]
+      evidence: https://api.lumen.com/oauth/v2/token
+deprecation_policy:
+  published: false
+  sunset_header: unknown
+  deprecation_header: unknown
+  detail: >-
+    No RFC 8594 Sunset or Deprecation header was observed on any anonymous response and
+    no deprecation or API-retirement policy page was found in the Lumen legal index or
+    the docs.lumen.com sitemap (982 URLs). No type: Deprecation pointer is emitted.
+status_page:
+  published: false
+  detail: >-
+    status.lumen.com and status.centurylink.com do not resolve in DNS. The former help
+    path https://www.lumen.com/help/en-us/network-status.html now 302s to the
+    docs.lumen.com root rather than a status surface. Network status for customers is a
+    signed-in Lumen Connect function ("planned network maintenance" under
+    https://docs.lumen.com/lumen-connect/support/), not a public status page. No
+    type: StatusPage pointer is emitted.
+  evidence:
+    - url: https://status.lumen.com/
+      status: 0
+      note: DNS does not resolve
+    - url: https://status.centurylink.com/
+      status: 0
+      note: DNS does not resolve
+    - url: https://www.lumen.com/help/en-us/network-status.html
+      status: 200
+      note: redirects to https://docs.lumen.com/ - not a status page
+change_log:
+  published: false
+  detail: No dated API changelog or release-notes feed was found on any Lumen host.
+retired_surfaces:
+  - name: Level 3 / Lumen OpenAPI Services developer portal
+    host: developer.level3.com
+    state: gone
+    evidence: DNS does not resolve (probed 2026-09-05)
+    note: >-
+      This host backed the "Lumen OpenAPI Services (Level 3 legacy)" entry in apis.yml.
+      Its pointers have been removed from the record.
+  - name: CenturyLink blog
+    host: blog.centurylink.com
+    state: gone
+    evidence: DNS does not resolve (probed 2026-09-05)
+  - name: Lumen API Marketplace
+    host: apimarketplace.lumen.com
+    state: redirecting-with-expired-certificate
+    evidence: >-
+      301 to https://developer.lumen.com/ but the host presents a TLS certificate
+      CN=developer.centurylink.com that expired 2026-01-15, so an ordinary browser or
+      HTTP client refuses the connection before the redirect is followed. Probed
+      2026-09-05.
+  - name: Legacy CenturyLink developer portal
+    host: developer.centurylink.com
+    state: redirecting-with-expired-certificate
+    evidence: >-
+      302 to https://developer.lumen.com/apis behind the same expired certificate
+      (expired 2026-01-15). Probed 2026-09-05.
+  - name: CenturyLink developer test portal
+    host: developer-test.centurylink.com
+    state: unreachable
+    evidence: TLS connection timed out after 25s (probed 2026-09-05)
+  - name: Developer Center /apis index
+    url: https://developer.lumen.com/apis
+    state: gone
+    evidence: >-
+      302 to the Developer Center root. The route table in the shipped SPA bundle
+      (main.DDKmTKrP.js) declares only /devcenter/{home,getting-started,support,overview}
+      and /devcenter/docs/:category/:section?/:slug?, so every /apis/* and /faq and
+      /library URL still indexed by search engines now resolves to the catch-all
+      NotFoundPage.
+sla:
+  published: false
+  detail: >-
+    Service-level commitments are published per product as service guides and schedules
+    under https://www.lumen.com/en-us/about/legal/ (for example the DDoS Mitigation
+    Service Guide and the Security Log Monitoring SLA), not as an API availability SLA.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
