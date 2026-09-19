@@ -8,7 +8,7 @@ tags:
   - Edge
   - Fiber
   - Lumen
-  - Network
+  - Networks
   - Authentication
   - Quantum Fiber
   - SD-WAN
@@ -76,7 +76,7 @@ apis:
       - Enterprise
       - Lumen
       - Authentication
-      - Partner
+      - Partners
       - REST
     tags_raw:
       - Enterprise
@@ -119,6 +119,10 @@ apis:
   - aid: centurylink:lumen-api-marketplace
     name: Lumen API Marketplace
     tags:
+      - API Marketplace
+      - Enterprise
+      - Partners
+    tags_raw:
       - API Marketplace
       - Enterprise
       - Partner
