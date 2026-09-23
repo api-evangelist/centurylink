@@ -1,7 +1,9 @@
 ---
 title: CenturyLink Data Center Sale Continues Trend
 url: https://www.telecompetitor.com/centurylink-data-center-sale-continues-telecom-data-center-divestiture-trend/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"CenturyLink" press release artificial intelligence'
 position: 5
 source: serpapi-google

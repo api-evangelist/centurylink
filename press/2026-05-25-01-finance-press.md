@@ -1,7 +1,9 @@
 ---
 title: Finance Press
 url: https://centurylink.net/finance/category/press
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"CenturyLink" press release artificial intelligence'
 position: 1
 source: serpapi-google
