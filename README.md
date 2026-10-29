@@ -1,4 +1,4 @@
-# CenturyLink (centurylink)
+# CenturyLink (Lumen Technologies)
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,93 +64,114 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-CenturyLink is the residential broadband and home services brand of Lumen Technologies, a Fortune 500 telecommunications provider operating one of the largest fiber networks in North America. Following the Level 3 acquisition and rebrand to Lumen, CenturyLink's developer surface is exposed through the Lumen Developer Center and Lumen API Marketplace, which publish REST APIs secured by OAuth 2.0 for enterprise location qualification, quote-to-order, provisioning, billing, notifications, CDN and edge compute, DDoS mitigation, and Public Sector networking products.
+CenturyLink is the residential broadband and home services brand of Lumen Technologies, a Fortune 500 telecommunications provider operating one of the largest fiber networks in North America. Following the Level 3 acquisition and rebrand to Lumen, CenturyLink's developer surface is exposed through the Lumen Developer Center, which publishes REST APIs secured by OAuth 2.0 for enterprise location qualification, quote-to-order, provisioning, billing, notifications, CDN and edge compute, DDoS mitigation, and Public Sector networking products. The production API gateway answers at api.lumen.com, but no OpenAPI, AsyncAPI or GraphQL contract is published anonymously: the Developer Center is a module-federation single-page app that returns the same HTML shell for every path and loads its specifications from a sign-in-gated service.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/centurylink/refs/heads/main/apis.yml)
+**Areas:** Broadband · Connectivity · Edge · Fiber · Lumen · Networks · Authentication · Quantum Fiber · SD-WAN · Telecommunications · Fortune 500
 
-## Scope
+## CenturyLink (Lumen Technologies) on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for CenturyLink (Lumen Technologies) is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/centurylink/](https://apis.io/providers/centurylink/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (5)
 
-- Telecom, Lumen, Network, Fiber, Broadband, Quantum Fiber, Connectivity, SD-WAN, Edge
+- [Lumen Developer Center APIs](https://apis.io/apis/centurylink/lumen-developer-center/) — The Lumen Developer Center publishes Lumen's enterprise API catalog, including Location, Quoting, Ordering, Service Inventory, Billing, Outbound…
+- [Lumen API Marketplace](https://apis.io/apis/centurylink/lumen-api-marketplace/) — The Lumen API Marketplace was the enterprise catalog where partners and customers browsed APIs and requested credentials. It has been folded into the Lumen…
+- [Lumen OpenAPI Services (Level 3 legacy)](https://apis.io/apis/centurylink/lumen-openapi-services/) — The Level 3 / Lumen OpenAPI Services portal provided OpenAPI-described REST services such as the Lumen Location API. The portal is GONE:…
+- [Lumen Public Sector API Center](https://apis.io/apis/centurylink/lumen-public-sector-api-center/) — The Public Sector API Center offers government-tailored REST APIs for Lumen network services, enabling federal, state, and local agencies to…
+- [Quantum Fiber Residential Services](https://apis.io/apis/centurylink/quantum-fiber/) — Quantum Fiber is Lumen's residential multi-gigabit fiber brand that supersedes CenturyLink in markets with fiber deployment, with account and service…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-23
-- **Modified:** 2026-04-23
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Security (2)
 
-### Lumen Developer Center APIs
-The Lumen Developer Center publishes Lumen's enterprise API catalog, including Location, Quote, Order (PX CreateOrder), Service Inventory, Billing, Outbound Notification, and Trouble Ticket APIs. All APIs use OAuth 2.0 Client Credentials.
+Authentication, trust centre, and vulnerability disclosure.
 
-**Human URL:** [https://developer.lumen.com/](https://developer.lumen.com/)
+- [Centurylink Authentication](https://apis.io/security/centurylink/centurylink-authentication/)
+- [Centurylink Domain Security](https://apis.io/security/centurylink/centurylink-domain-security/)
 
-#### Tags
-- Lumen, Enterprise, REST, OAuth 2.0, Partner
+#### Plans and pricing (1)
 
-#### Properties
-- [Website](https://developer.lumen.com/)
-- [Reference](https://developer.lumen.com/apis)
-- [LegacyDeveloper](https://developer.centurylink.com/apis)
-- [Authentication](https://developer-test.centurylink.com/content/using-oauth-20-access-lumen-apis)
+Published plans, tiers and prices.
 
-### Lumen API Marketplace
-The Lumen API Marketplace is the enterprise catalog where partners and customers browse APIs, request credentials, and manage app-level OAuth client IDs.
+- [Centurylink Plans Pricing](https://apis.io/plans/centurylink/centurylink-plans-pricing/)
 
-**Human URL:** [https://apimarketplace.lumen.com/](https://apimarketplace.lumen.com/)
+#### Rate limits (1)
 
-#### Tags
-- API Marketplace, Enterprise, Partner
+Published request limits.
 
-#### Properties
-- [Website](https://apimarketplace.lumen.com/)
-- [Credentials](https://apimarketplace.lumen.com/obtaining-user-credentials-access-centurylink-apis)
+- [Centurylink Rate Limits](https://apis.io/rate-limits/centurylink/centurylink-rate-limits/)
 
-### Lumen OpenAPI Services (Level 3 legacy)
-OpenAPI-described REST services such as the Lumen Location API that returns detailed service location information by locationId.
+#### FinOps (1)
 
-**Human URL:** [https://developer.level3.com/documentation](https://developer.level3.com/documentation)
+What the API costs to run, by operation.
 
-#### Tags
-- OpenAPI, Level 3, Location, Connectivity
+- [Centurylink Finops](https://apis.io/finops/centurylink/centurylink-finops/)
 
-#### Properties
-- [Documentation](https://developer.level3.com/documentation)
-- [Developer](https://developer.level3.com/)
+## Where to find this API
 
-### Lumen Public Sector API Center
-Government-tailored REST APIs for Lumen network services, enabling federal, state, and local agencies to programmatically order, provision, and monitor connectivity.
-
-**Human URL:** [https://blog.centurylink.com/lumen-launches-public-sector-api-marketplace-which-offers-easy-to-use-apis/](https://blog.centurylink.com/lumen-launches-public-sector-api-marketplace-which-offers-easy-to-use-apis/)
-
-#### Tags
-- Public Sector, Government, Federal, State and Local
-
-### Quantum Fiber Residential Services
-Quantum Fiber is Lumen's residential multi-gigabit fiber brand that supersedes CenturyLink in markets with fiber deployment.
-
-**Human URL:** [https://www.quantumfiber.com/](https://www.quantumfiber.com/)
-
-#### Tags
-- Fiber, Residential, Broadband
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.centurylink.com)
-- [Corporate](https://www.lumen.com/)
-- [Developer](https://developer.lumen.com/)
-- [APIMarketplace](https://apimarketplace.lumen.com/)
 - [Documentation](https://docs.lumen.com/)
-- [GitHubOrganization](https://github.com/centurylink)
-- [QuantumFiber](https://www.quantumfiber.com/)
+- [Getting started](https://developer.lumen.com/devcenter/getting-started)
+- [API reference](https://developer.lumen.com/devcenter/overview)
+- [Support](https://developer.lumen.com/devcenter/support)
+- [Blog](https://www.lumen.com/blog-and-news/en-us/home)
+- [Terms of service](https://www.lumen.com/en-us/about/legal/api-developer-terms-and-conditions.html)
+- [Privacy policy](https://www.lumen.com/en-us/about/legal/privacy-notice.html)
+- [GitHub](https://github.com/centurylink)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
+**Kin Score 27.7** — thin · rubric 0.24.0 · scored 2026-10-17
 
-**Email:** kin@apievangelist.com
+| Facet | Score |
+|---|---|
+| Discoverability | 69.6 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 42.1 |
+
+**Agent readiness 7.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 25.8** — Telecommunications
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/centurylink/](https://apis.io/providers/centurylink/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for CenturyLink (Lumen Technologies): the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/centurylink/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
