@@ -1,0 +1,117 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: CenturyLink (Lumen Technologies)
+providerId: centurylink
+created: '2026-05-04'
+# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
+# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
+method: searched
+modified: '2026-09-05'
+reconciled: false
+tags:
+  - Telecom
+  - Connectivity
+  - Network
+  - Enterprise
+description: Lumen (legacy CenturyLink) exposes enterprise APIs through the Lumen Developer Center and
+  Lumen API Marketplace. API access is partner-gated via OAuth 2.0 and tied to Lumen network service
+  contracts. No public per-call pricing is published; API consumption is bundled with the underlying
+  Lumen connectivity, edge, CDN, and security service contracts.
+notes: API usage is not separately metered against a published price list. Pricing is contractually negotiated
+  alongside the underlying Lumen network/edge service. Treated as a partner-enterprise model with no
+  public tiers.
+plan_count: 2
+sources:
+  - https://developer.lumen.com/
+  - https://www.lumen.com/en-us/public-sector.html
+  - https://www.lumen.com/llms.txt
+verification:
+  method: searched
+  checked: '2026-09-05'
+  finding: >-
+    Re-verified 2026-09-05. Lumen publishes NO public per-call API price list and no
+    plan/tier page. The www.lumen.com sitemap (407 URLs) contains no pricing page;
+    https://www.lumen.com/en-us/pricing.html returns 404. Lumen's own llms.txt describes
+    Network-as-a-Service as "pay as you go", but no rate card is published. API
+    consumption is not separately metered against a published price - it rides the
+    underlying connectivity, edge, CDN and security contract. The two entries below are
+    contract shapes, not published tiers. Both prior source URLs were dead and have been
+    replaced: apimarketplace.lumen.com serves an expired TLS certificate and
+    /en-us/solutions/public-sector.html now 404s (the live page is /en-us/public-sector.html).
+  evidence:
+    - url: https://www.lumen.com/en-us/pricing.html
+      status: 404
+    - url: https://www.lumen.com/en-us/public-sector.html
+      status: 200
+    - url: https://www.lumen.com/en-us/solutions/public-sector.html
+      status: 404
+plans:
+  - id: centurylink-partner
+    name: Partner / Enterprise API Access
+    type: enterprise
+    description: OAuth 2.0 access to the Lumen API Marketplace. Requires Partner Developer Portal registration
+      and administrator enablement; usage is governed by the underlying Lumen service contract.
+    entries:
+      - label: API access
+        name: api_access
+        type: subscription
+        metric: contract
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: contract
+        userMultiplied: false
+    elements:
+      - name: Location, Quote, Order, Service Inventory APIs
+      - name: Billing and Outbound Notification APIs
+      - name: Trouble Ticket API
+      - name: OAuth 2.0 Client Credentials authentication
+      - name: Partner Developer Portal registration required
+  - id: centurylink-public-sector
+    name: Public Sector API Center
+    type: enterprise
+    description: Government-tailored REST APIs for federal, state, and local agencies. Pricing follows
+      Lumen public-sector contract vehicles.
+    entries:
+      - label: Public sector contract
+        name: public_sector
+        type: subscription
+        metric: contract
+        limit: -1
+        timeFrame: month
+        geo: US
+        unit: 1
+        price: contract
+        userMultiplied: false
+    elements:
+      - name: Federal / state / local connectivity APIs
+      - name: Order, provisioning, and monitoring endpoints
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - subscription
+  units:
+  - negotiated
+  plans:
+  - name: Partner / Enterprise API Access
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - month
+  - name: Public Sector API Center
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - month
